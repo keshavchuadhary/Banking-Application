@@ -5,6 +5,8 @@ import java.time.*;
 
 import org.hibernate.annotations.*;
 
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import lombok.*;
 
 
@@ -14,7 +16,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
+@Table(name = "users")
 class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String firstName;
 	private String lastName;
@@ -25,7 +32,7 @@ class User {
 	private BigDecimal accountBalance;
 	private String email;
 	private String phoneNumber;
-	private String laternativePhoneNumber;
+	private String alternativePhoneNumber;
 	private String status;
 	
 	@CreationTimestamp
